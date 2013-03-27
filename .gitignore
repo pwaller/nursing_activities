@@ -1,0 +1,4 @@
+*.xlsx
+*.pyc
+*.sqlite
+*.egg-info
