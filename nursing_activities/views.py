@@ -18,7 +18,18 @@ from .models import (
 
 @view_config(context=Home, renderer='templates/home.pt')
 def home(context, request):
-    return {'staff': DBSession.query(Staff).order_by(Staff.name).all()}
+    all_staff = DBSession.query(Staff).order_by(Staff.name).all()
+
+    # single_staff = DBSession.query(Staff).filter(Staff.name == "Christine Furber").one()
+    staff_i_am_interested_in = []
+
+    for staff in all_staff:
+        if staff.division is not None and staff.grand_total != 0:
+            staff_i_am_interested_in.append(staff)
+
+    # staff_i_am_interested_in = all_staff
+
+    return {'staff': staff_i_am_interested_in}
 
 
 @view_config(context=StaffActivities, renderer='templates/staff_activities.pt')
