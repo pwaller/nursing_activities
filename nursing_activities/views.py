@@ -94,7 +94,7 @@ def build_staff_view(activities):
     for activity_type, courses in sorted(by_activity.iteritems()):
         rows.append((
             {'style': 'background: #ddd'}, 
-            ('<td colspan="2"><h3>{}</h3></td><td style="margin-right: 1em;">{}</td><td>Adjusted</td>'
+            ('<td colspan="2"><h3>{}</h3></td><td style="margin-right: 1em;">{}</td><td>Total time</td>'
             ).format(
                 activity_type.name, activity_type.unit())))
 
